@@ -16,12 +16,12 @@ db = Chroma(persist_directory=persistent_directory,
             embedding_function=embeddings)
 
 # Define the user's question
-query = "How did Juliet die?"
+query = "Who is Odysseus' wife?"
 
 # Retrieve relevant documents based on the query
 retriever = db.as_retriever(
     search_type="similarity_score_threshold",
-    search_kwargs={"k": 3, "score_threshold": 0.1},
+    search_kwargs={"k": 3, "score_threshold": 0.4},
 )
 relevant_docs = retriever.invoke(query)
 
