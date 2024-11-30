@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
@@ -26,7 +26,7 @@ query = "How can I learn more about LangChain?"
 # Retrieve relevant documents based on the query
 retriever = db.as_retriever(
     search_type="similarity",
-    search_kwargs={"k": 1},
+    search_kwargs={"k": 2},
 )
 relevant_docs = retriever.invoke(query)
 
